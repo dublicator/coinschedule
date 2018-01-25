@@ -56,7 +56,7 @@ export interface ICoinScheduleIcoDetails {
 }
 
 export class CoinSchedule {
-    private apiHost = "https://develpers.coinschedule.com/api/v1";
+    private apiHost = "https://api.coinschedule.com/api/v1";
     private axiosApiRequest = axios.create({
         baseURL: this.apiHost,
         headers: {
@@ -71,8 +71,8 @@ export class CoinSchedule {
     /**
      * Returns live ICO's within specified parameters.
      */
-    public async getLive(params: ICoinScheduleFilter) {
-        return await this.request("/getLive");
+    public async live(params: ICoinScheduleFilter = {cat: [], plat: []}) {
+        return await this.request("/ico/live", {filters: params});
     }
 
     /**
@@ -103,10 +103,10 @@ export class CoinSchedule {
         return await this.request("/getPlatform");
     }
 
-    private async request(url: string): Promise<ICoinScheduleResponse> {
-        const response = await axios.post(url);
-        const data: ICoinScheduleResponse = response.data;
-        return data;
+    private async request(path: string, params = {}): Promise<ICoinScheduleResponse> {
+        const url = `${this.apiHost}path`;
+        const response = await axios.post(url, params);
+        return response.data;
         /* if (data.status !== 200) {
             throw new Error(`Error ${data.status}: ${data.error}`);
         } */

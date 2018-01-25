@@ -3,7 +3,7 @@ import * as config from "config";
 
 const cs = new CoinSchedule(config.get("coinschedule.apiKey"));
 
-cs.getPlatform()
+cs.live()
     .then((data) => {
         console.log(data);
     })
