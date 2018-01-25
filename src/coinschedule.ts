@@ -78,8 +78,8 @@ export class CoinSchedule {
     /**
      * Returns upcoming ICO's within specified parameters.
      */
-    public async getUpcoming(params: ICoinScheduleFilter) {
-        return await this.request("/getUpcoming");
+    public async upcoming(params: ICoinScheduleFilter = {cat: [], plat: []}) {
+        return await this.request("/ico/upcoming", {filters: params});
     }
 
     /**
