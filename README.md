@@ -25,7 +25,7 @@ You can request an access to API by following next steps:
 
 - [Official Coinschedule PHP SDK](https://github.com/0x15f/coinschedule-php)
 - [Official Coinschedule Python SDK](https://github.com/0x15f/coinschedule-python)
-- [API documentation](http://developers.coinschedule.com/docs/)
+- [API documentation](https://developers.coinschedule.com/)
 
 ## Authors
 
