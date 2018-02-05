@@ -85,8 +85,9 @@ export class CoinSchedule {
     /**
      * Returns an ICO's details based on parameters.
      */
-    public async getDetails(params?: ICoinScheduleDetailsParams) {
-        return await this.request("/getDetails");
+    public async details(params: ICoinScheduleDetailsParams = {event_id: undefined, proj_id: undefined}) {
+        const url = `/ico/details/eventid:projectid`;
+        return await this.request(url);
     }
 
     /**
